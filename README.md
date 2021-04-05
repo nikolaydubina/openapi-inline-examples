@@ -2,7 +2,7 @@
 
 > How do I add JSON examples to `openapi.yaml` from `.json` files?
 
-Add to your `openapi.yaml` annotation `#source <filepath>` like bellow:
+Add to your `openapi.yaml` annotation `#source <filepath>` like
 
 ```yaml
 openapi: 3.0.0
@@ -40,7 +40,7 @@ paths:
                   value: #source testdata/error-400.json
 ```
 
-.. then run `cat openapi.yaml | go run main.go > openapi.new.yaml` which will produce bellow
+.. then run `cat openapi.yaml | go run main.go > openapi.new.yaml` which will produce
 
 ```yaml
 openapi: 3.0.0
@@ -78,7 +78,7 @@ paths:
                   value: {"errors":[{"message":"resource not found","status":400,"translation_data":"some translation identifier"}]} #source testdata/error-400.json
 ```
 
-.. this will render nicely as multiple examples that you can select
+.. which renders nicely as multiple examples that you can select
 
 ![example-preview](docs/example.png)
 
