@@ -1,4 +1,4 @@
-> I need to add JSON examples to OpenAPI from files
+> I need to add JSON examples to `openapi.yaml` from `.json` files
 
 Add to your `openapi.yaml` annotation `#source <filepath>` like bellow:
 
