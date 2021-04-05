@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"os"
@@ -46,19 +47,24 @@ func processLine(input string) (string, error) {
 	return output, nil
 }
 
-func main() {
-	scanner := bufio.NewScanner(os.Stdin)
+// processLines processes all lines from reader to writer
+func processLines(in io.Reader, out io.Writer) {
+	scanner := bufio.NewScanner(in)
 	for scanner.Scan() {
 		input := scanner.Text()
 		processed, err := processLine(input)
 		if err != nil {
 			log.Println(err.Error())
-			fmt.Println(input)
+			fmt.Fprintln(out, input)
 		} else {
-			fmt.Println(processed)
+			fmt.Fprintln(out, processed)
 		}
 	}
 	if err := scanner.Err(); err != nil {
 		log.Println(err)
 	}
+}
+
+func main() {
+	processLines(os.Stdin, os.Stdout)
 }

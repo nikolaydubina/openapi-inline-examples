@@ -1,11 +1,14 @@
 package main
 
 import (
+	"bytes"
+	"io/ioutil"
+	"os"
 	"strings"
 	"testing"
 )
 
-func TestCountVectorizer(t *testing.T) {
+func TestProcessingLine(t *testing.T) {
 	tests := []struct {
 		name      string
 		input     string
@@ -59,6 +62,44 @@ func TestCountVectorizer(t *testing.T) {
 			}
 			if tc.errMsg != "" && !strings.Contains(err.Error(), tc.errMsg) {
 				t.Errorf("%s not in %s", err.Error(), tc.errMsg)
+			}
+		})
+	}
+}
+
+func TestProcessingLines(t *testing.T) {
+	tests := []struct {
+		name       string
+		inputFile  string
+		outputFile string
+	}{
+		{
+			name:       "basic",
+			inputFile:  "testdata/openapi.only-comment.yaml",
+			outputFile: "testdata/openapi.inplaced.yaml",
+		},
+	}
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			original, err := os.Open(tc.inputFile)
+			if err != nil {
+				t.Error(err)
+
+			}
+			expected, err := os.Open(tc.outputFile)
+			if err != nil {
+				t.Error(err)
+			}
+			expectedBytes, err := ioutil.ReadAll(expected)
+			if err != nil {
+				t.Error(err)
+			}
+
+			buff := bytes.NewBuffer(nil)
+			processLines(original, buff)
+
+			if !bytes.Equal(expectedBytes, buff.Bytes()) {
+				t.Fail()
 			}
 		})
 	}
