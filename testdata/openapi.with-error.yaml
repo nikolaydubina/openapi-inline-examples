@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Swagger Marvelstore
+
+paths:
+  /users:
+    get:
+      responses:
+        '200':
+          description: A user object.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 4
+                  name:
+                    type: string
+                    example: Jessica Smith
+              examples:
+                basic:
+                  value: #source testdata/asdf.json
+        '400':
+          description: The specified user ID is invalid (not a number).
+          content:
+            application/json:
+              examples:
+                basic 400:
+                  value: #source testdata/asdf.json
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+      examples:
+        user only id:
+          value: #source testdata/asdf.json
+        user all fields:
+          value: #source testdata/asdf.json

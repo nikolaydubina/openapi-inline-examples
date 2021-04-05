@@ -78,6 +78,11 @@ func TestProcessingLines(t *testing.T) {
 			inputFile:  "testdata/openapi.only-comment.yaml",
 			outputFile: "testdata/openapi.inplaced.yaml",
 		},
+		{
+			name:       "with error in file",
+			inputFile:  "testdata/openapi.with-error.yaml",
+			outputFile: "testdata/openapi.with-error.yaml",
+		},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
