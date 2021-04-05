@@ -1,6 +1,6 @@
 [![codecov](https://codecov.io/gh/nikolaydubina/openapi-inline-examples/branch/main/graph/badge.svg?token=J97ET3LIQA)](https://codecov.io/gh/nikolaydubina/openapi-inline-examples)
 
-> I need to add JSON examples to `openapi.yaml` from `.json` files. How to do this?
+> How do I add JSON examples to `openapi.yaml` from `.json` files?
 
 Add to your `openapi.yaml` annotation `#source <filepath>` like bellow:
 
@@ -82,10 +82,10 @@ paths:
 
 ![example-preview](docs/example.png)
 
-Why would you need this?
+Why would anyone neeed this?
 
 - Keep your OpenAPI up to date with values you use in tests
 - Can run multiple times
 - UNIX filter
-- does not corrupt anything if fails at any stage
+- Does not corrupt anything if fails at any stage
 - 100% test coverage
