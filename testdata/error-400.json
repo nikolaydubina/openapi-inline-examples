@@ -1,0 +1,9 @@
+{
+    "errors": [
+        {
+            "status": 400,
+            "message": "resource not found",
+            "translation_data": "some translation identifier"
+        }
+    ]
+}
