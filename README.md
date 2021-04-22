@@ -40,7 +40,14 @@ paths:
                   value: #source testdata/error-400.json
 ```
 
-.. then run `cat openapi.yaml | go run main.go > openapi.new.yaml` which will produce
+.. then run 
+
+```
+$ go install github.com/nikolaydubina/openapi-inline-examples@latest
+$ cat openapi.yaml | openapi-inline-examples > openapi.new.yaml
+```
+
+.. which will produce
 
 ```yaml
 openapi: 3.0.0
@@ -82,7 +89,7 @@ paths:
 
 ![example-preview](docs/example.png)
 
-Why would anyone neeed this?
+Why would anyone need this?
 
 - Keep your OpenAPI up to date with values you use in tests
 - Can run multiple times
