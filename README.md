@@ -1,4 +1,5 @@
 [![codecov](https://codecov.io/gh/nikolaydubina/openapi-inline-examples/branch/main/graph/badge.svg?token=J97ET3LIQA)](https://codecov.io/gh/nikolaydubina/openapi-inline-examples)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/nikolaydubina/openapi-inline-examples/badge)](https://securityscorecards.dev/viewer/?uri=github.com/nikolaydubina/openapi-inline-examples)
 
 > How do I add JSON examples to `openapi.yaml` from `.json` files?
 
